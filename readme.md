@@ -5,7 +5,7 @@
 [![Flask](https://img.shields.io/badge/flask-%23000.svg?style=flat&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=flat&logo=TensorFlow&logoColor=white)](https://www.tensorflow.org/)
 
-> Asisten virtual cerdas untuk warung makan Indonesia (Warmindo) yang membantu pelanggan dengan pemesanan dan informasi menu menggunakan Natural Language Processing.
+> Asisten virtual cerdas untuk Warung Makan Indomie (Warmindo) yang membantu pelanggan dengan pemesanan dan informasi menu menggunakan Natural Language Processing.
 
 ![Warmindo Chatbot Demo](./assets/demo.gif)
 

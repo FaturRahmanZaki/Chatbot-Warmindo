@@ -83,31 +83,17 @@ graph LR
 
 ```
 chatbot-warmindo/
-├── app/
-│   ├── __init__.py
-│   ├── routes.py
-│   ├── models/
-│   │   └── chatbot_model.py
-│   └── utils/
-│       └── preprocessor.py
-├── data/
-│   ├── training.json
-│   ├── responses.json
-│   └── model/
-│       ├── model.h5
-│       ├── tokenizer.pkl
-│       └── label_encoder.pkl
-├── static/
-│   ├── css/
-│   └── js/
+├── assets/
+│   ├── demo.gif
+├── dataset/
+│   ├── data.json
+│   ├── classes.pkl
+│   ├── chatbot_model.h5
+│   ├── model.ipynb
+│   └── words.pkl
 ├── templates/
 │   └── index.html
-├── tests/
-│   └── test_chatbot.py
-├── .env.example
-├── .gitignore
-├── config.py
-├── requirements.txt
+├── app..py
 └── README.md
 ```
 

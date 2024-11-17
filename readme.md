@@ -196,14 +196,10 @@ Lihat [panduan kontribusi](./CONTRIBUTING.md) untuk detail lebih lanjut.
 
 Didistribusikan di bawah Lisensi MIT. Lihat [LICENSE](./LICENSE) untuk informasi lebih lanjut.
 
-## 👥 Tim
-
-- **Project Lead** - [@Fatur](https://github.com/FaturRahmanZaki)
-- Lihat juga daftar [kontributor](https://github.com/username/chatbot-warmindo/contributors) yang berpartisipasi dalam proyek ini.
 
 ## 📬 Kontak
 
-Nama Anda - [@ftrrahmanzk](https://x.com/FaturZaki) - email@example.com
+Fatur Rahman Zaki - [@ftrrahmanzk](https://x.com/FaturZaki) - email@example.com
 
 Project Link: [https://github.com/FaturRahmanZaki/Chatbot-Warmindo](https://github.com/FaturRahmanZaki/Chatbot-Warmindo)
 

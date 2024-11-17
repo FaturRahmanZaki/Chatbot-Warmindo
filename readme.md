@@ -164,7 +164,7 @@ Didistribusikan di bawah Lisensi MIT. Lihat [LICENSE](./LICENSE) untuk informasi
 
 ## 📬 Kontak
 
-Fatur Rahman Zaki - [@ftrrahmanzk](https://x.com/FaturZaki) - email@example.com
+Fatur Rahman Zaki - [@ftrrahmanzk](https://x.com/FaturZaki)
 
 Project Link: [https://github.com/FaturRahmanZaki/Chatbot-Warmindo](https://github.com/FaturRahmanZaki/Chatbot-Warmindo)
 

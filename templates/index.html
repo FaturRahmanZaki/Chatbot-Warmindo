@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warmindo Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .message-animation {
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .typing-indicator span {
+            animation: blink 1.4s infinite both;
+        }
+        
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes blink {
+            0% { opacity: 0.1; }
+            20% { opacity: 1; }
+            100% { opacity: 0.1; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 3px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-2xl">
+        <!-- Chat Container -->
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            <!-- Header -->
+            <div class="bg-gradient-to-r from-blue-600 to-blue-800 px-6 py-4">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-white text-xl font-bold">Warmindo Chatbot</h2>
+                        <p class="text-blue-100 text-sm">Online - Siap Membantu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chat Messages -->
+            <div class="h-[600px] overflow-y-auto p-6 space-y-4 bg-gray-50" id="chat-box">
+                <div id="messages" class="space-y-4"></div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="border-t p-4 bg-white">
+                <div class="flex items-center space-x-3">
+                    <div class="flex-1 relative">
+                        <input 
+                            id="user-input" 
+                            type="text" 
+                            placeholder="Ketik pesan Anda..." 
+                            class="w-full px-4 py-3 border rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all pr-12"
+                            onkeypress="if(event.key === 'Enter') sendMessage()"
+                        >
+                        <button 
+                            onclick="clearInput()" 
+                            class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                        >
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <button 
+                        onclick="sendMessage()" 
+                        class="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors flex items-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
+                    >
+                        <span>Kirim</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="mt-2 text-xs text-gray-500 flex items-center justify-end">
+                    <i class="fas fa-shield-alt mr-1"></i>
+                    <span>Pesan Anda aman dan terenkripsi</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isTyping = false;
+
+        function clearInput() {
+            document.getElementById("user-input").value = "";
+        }
+
+        function showTypingIndicator() {
+            const chatBox = document.getElementById("messages");
+            const typingDiv = document.createElement("div");
+            typingDiv.id = "typing-indicator";
+            typingDiv.className = "flex justify-start message-animation";
+            typingDiv.innerHTML = `
+                <div class="bg-gray-200 text-gray-600 rounded-xl py-2 px-4 max-w-[80%] flex items-center space-x-2">
+                    <div class="typing-indicator flex space-x-1">
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                        <span class="w-2 h-2 bg-gray-400 rounded-full"></span>
+                    </div>
+                </div>
+            `;
+            chatBox.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById("typing-indicator");
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+
+        function scrollToBottom() {
+            const chatContainer = document.getElementById("chat-box");
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        function addMessage(content, type) {
+            const chatBox = document.getElementById("messages");
+            const messageDiv = document.createElement("div");
+            
+            if (type === "user") {
+                messageDiv.className = "flex justify-end message-animation";
+                messageDiv.innerHTML = `
+                    <div class="bg-blue-600 text-white rounded-xl py-2 px-4 max-w-[80%] shadow-md">
+                        <div class="font-medium">${content}</div>
+                        <div class="text-xs text-blue-200 mt-1">
+                            ${new Date().toLocaleTimeString()}
+                        </div>
+                    </div>
+                `;
+            } else {
+                messageDiv.className = "flex justify-start message-animation";
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center">
+                            <i class="fas fa-robot text-blue-600"></i>
+                        </div>
+                        <div class="bg-white text-gray-800 rounded-xl py-2 px-4 max-w-[80%] shadow-md">
+                            <div class="font-medium">${content}</div>
+                            <div class="text-xs text-gray-500 mt-1">
+                                ${new Date().toLocaleTimeString()}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            chatBox.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        async function loadWelcomeMessage() {
+            try {
+                const response = await fetch("/welcome");
+                const data = await response.json();
+                addMessage(data.response, "bot");
+            } catch (error) {
+                addMessage("Selamat datang di Warmindo Chatbot! 👋 Saya siap membantu Anda. Ada yang bisa saya bantu hari ini?", "bot");
+            }
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById("user-input");
+            const userMessage = input.value;
+            
+            if (userMessage.trim() === "") return;
+
+            addMessage(userMessage, "user");
+            input.value = "";
+            
+            if (isTyping) return;
+            isTyping = true;
+
+            showTypingIndicator();
+
+            try {
+                const response = await fetch("/get", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ message: userMessage }),
+                });
+
+                const data = await response.json();
+                
+                // Simulate bot thinking time
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    addMessage(data.response, "bot");
+                    isTyping = false;
+                }, 1000);
+            } catch (error) {
+                setTimeout(() => {
+                    removeTypingIndicator();
+                    addMessage("Maaf, terjadi kesalahan. Silakan coba lagi. 🙏", "bot");
+                    isTyping = false;
+                }, 1000);
+            }
+        }
+
+        window.onload = loadWelcomeMessage;
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+{
+    "intents": [
+        {
+            "tag": "welcome",
+            "patterns": [
+                "welcome",
+                "home",
+                "start",
+                "mulai",
+                "index",
+                "awal"
+            ],
+            "responses": [
+                "Halo! Selamat datang di Warmindo 🍜\nSaya adalah asisten yang siap membantu pesanan Anda.\nSilakan tanyakan menu atau langsung pesan ya! 😊",
+                "Selamat datang di Warmindo! 🏪\nMau pesan Indomie atau lihat menu dulu nih?",
+                "Halo! Welcome to Warmindo 🍜\nMau tau menu apa yang tersedia hari ini?",
+                "Selamat datang di Warmindo Online! 🏪\nSaya siap membantu pesanan Anda.\nMau langsung order atau lihat menu dulu?",
+                "Hi! Selamat datang di Warmindo 😊\nIngin pesan apa hari ini?\nKetik 'menu' untuk melihat daftar menu kami"
+            ]
+        },
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Halo",
+                "Hai",
+                "Selamat pagi",
+                "Selamat siang",
+                "Selamat malam",
+                "Permisi",
+                "Buka ga?",
+                "P",
+                "Assalamualaikum",
+                "Bang",
+                "Kak",
+                "Mas"
+            ],
+            "responses": [
+                "Halo, selamat datang di Warmindo! Ada yang bisa dibantu?",
+                "Hai, selamat datang! Mau pesan menu apa hari ini?",
+                "Waalaikumsalam, selamat datang di Warmindo! Mau pesan apa?",
+                "Iya kak, Warmindo buka. Mau pesan apa?",
+                "Halo! Silakan mau order menu apa?"
+            ]
+        },
+        {
+            "tag": "menu_inquiry",
+            "patterns": [
+                "Menu apa aja?",
+                "Ada menu apa?",
+                "Bisa liat menu?",
+                "Menu yang ready apa?",
+                "Daftar menu dong",
+                "Menu favorit apa?",
+                "Yang recommended apa?"
+            ],
+            "responses": [
+                "Berikut menu kami kak:\n1. Indomie Goreng/Kuah (Original/Pedas)\n2. Nasi Telur\n3. Nasi Kucing\n\nMinuman:\n- Teh (Manis/Tawar)\n- Kopi (Hitam/Susu)\n\nMau pesan yang mana?",
+                "Menu favorit kami:\n- Indomie Goreng Telur\n- Indomie Kuah Telur\n- Nasi Telur Spesial\n\nMau coba yang mana kak?",
+                "Menu ready semua kak! Ada:\n- Indomie (Goreng/Kuah)\n- Nasi Telur\n- Minuman Aneka Rasa\n\nMau order apa?"
+            ]
+        },
+        {
+            "tag": "order",
+            "patterns": [
+                "Mie goreng satu",
+                "Pesen mie kuah",
+                "Nasi telur satu",
+                "Teh manis dua",
+                "Kopi item satu",
+                "Mau pesen",
+                "Order mie goreng"
+            ],
+            "responses": [
+                "Baik kak, {item} nya mau pakai telur atau tambahan lain?",
+                "Oke, {item} nya level pedas berapa kak? (1-5)",
+                "Siap! {item} nya. Minumnya mau pesan apa?",
+                "Oke, {item} segera diproses. Ada tambahan lain?",
+                "Baik, {item} dicatat. Mau tambah topping telur/bakso/sosis?"
+            ]
+        },
+        {
+            "tag": "topping_inquiry",
+            "patterns": [
+                "Toppingnya apa aja?",
+                "Bisa tambah telur?",
+                "Ada bakso?",
+                "Pake telur",
+                "Tambah sosis",
+                "Extra topping"
+            ],
+            "responses": [
+                "Topping tersedia:\n- Telur (ceplok/orak-arik)\n- Bakso\n- Sosis\n- Sayur\n\nMau pakai yang mana kak?",
+                "Bisa kak! Telurnya mau ceplok atau orak-arik?",
+                "Oke, mau tambah topping apa kak? Ada telur, bakso, dan sosis",
+                "Siap! Telurnya mau dimasak gimana kak? Ceplok atau orak-arik?"
+            ]
+        },
+        {
+            "tag": "spicy_level",
+            "patterns": [
+                "Level pedas",
+                "Mau yang pedes",
+                "Level 3",
+                "Pedesnya sedang",
+                "Yang paling pedes",
+                "Gak pedes"
+            ],
+            "responses": [
+                "Level pedas 1-5 ya kak, mau level berapa?",
+                "Siap! Level {level} ya. Mau tambah topping?",
+                "Oke, level {level} dicatat. Ada pesanan lain?",
+                "Level pedas {level} ya kak. Minumnya sekalian?"
+            ]
+        },
+        {
+            "tag": "price_inquiry",
+            "patterns": [
+                "Harga mie goreng berapa?",
+                "Berapa harga teh?",
+                "Nasi telur berapa?",
+                "Kopi hitam berapa?",
+                "Harga topping telur",
+                "Total berapa?"
+            ],
+            "responses": [
+                "Harga menu kami:\n- Indomie: Rp10.000\n- Nasi Telur: Rp15.000\n- Teh: Rp5.000\n- Kopi: Rp8.000\n\nMau pesan yang mana?",
+                "Untuk topping:\n- Telur: +Rp5.000\n- Bakso: +Rp7.000\n- Sosis: +Rp7.000\n\nMau tambah topping?",
+                "Total pesanan: Rp{total}. Mau pesan yang lain?"
+            ]
+        },
+        {
+            "tag": "unavailable_menu",
+            "patterns": [
+                "Ada nasi goreng?",
+                "Jual burger?",
+                "Ada soto?",
+                "Bakso ada?",
+                "Jual seblak?",
+                "Ada martabak?"
+            ],
+            "responses": [
+                "Maaf kak, menu itu belum tersedia. Tapi kami punya Indomie dan Nasi Telur yang enak! Mau pesan?",
+                "Menu tersebut belum ada kak. Mau coba menu andalan kami? Ada Indomie Goreng/Kuah dan Nasi Telur",
+                "Mohon maaf, kami fokus ke menu Indomie dan Nasi Telur. Mau coba menu kami?"
+            ]
+        },
+        {
+            "tag": "operating_hours",
+            "patterns": [
+                "Buka sampai jam berapa?",
+                "Jam berapa buka?",
+                "Masih buka?",
+                "Besok buka?",
+                "Hari minggu buka?",
+                "24 jam?"
+            ],
+            "responses": [
+                "Kami buka setiap hari:\n- Senin-Jumat: 07.00-01.00\n- Sabtu-Minggu: 24 jam\nMau pesan untuk sekarang?",
+                "Warmindo buka dari jam 7 pagi sampai 1 malam kak (Senin-Jumat). Kalau weekend buka 24 jam. Mau order?",
+                "Masih buka kok kak! Sampai jam 1 malam. Mau pesan apa?"
+            ]
+        },
+        {
+            "tag": "order_status",
+            "patterns": [
+                "Pesanan udah jadi?",
+                "Masih lama?",
+                "Lagi dimasak?",
+                "Pesananku mana?",
+                "Kira-kira berapa lama?"
+            ],
+            "responses": [
+                "Pesanan sedang dimasak kak, estimasi 5-10 menit lagi ya",
+                "Sebentar ya kak, pesanannya lagi diproses. Mohon ditunggu",
+                "Masih dimasak kak, 5 menit lagi siap. Mohon ditunggu sebentar ya"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Udah",
+                "Makasih",
+                "Thank you",
+                "Terima kasih",
+                "Ok",
+                "Sip",
+                "Oke",
+                "Bye"
+            ],
+            "responses": [
+                "Sama-sama kak! Selamat menikmati",
+                "Terima kasih kembali! Ditunggu orderan selanjutnya ya",
+                "Makasih juga kak! Selamat menikmati pesanannya",
+                "Oke kak, selamat menikmati! Ditunggu orderan berikutnya"
+            ]
+        }
+    ]
+}

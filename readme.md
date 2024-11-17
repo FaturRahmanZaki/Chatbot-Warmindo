@@ -23,9 +23,7 @@
   - FAQ otomatis
 
 - 🌐 **Antarmuka Web Modern**
-  - Desain responsif
-  - Real-time chat
-  - Riwayat percakapan
+  - Desain responsi
   - Tampilan mobile-friendly
 
 ## 🚀 Quickstart
@@ -44,7 +42,7 @@ pip install -r requirements.txt
 
 1. Clone repositori
 ```bash
-git clone https://github.com/username/chatbot-warmindo.git
+git clone https://github.com/FaturRahmanZaki/Chatbot-Warmindo
 cd chatbot-warmindo
 ```
 

@@ -145,27 +145,6 @@ python -m pytest tests/
 pytest --cov=app tests/
 ```
 
-## 📝 Konfigurasi
-
-Salin `.env.example` ke `.env` dan sesuaikan:
-
-```env
-FLASK_ENV=development
-DEBUG=True
-SECRET_KEY=your-secret-key
-MODEL_PATH=path/to/model
-```
-
-## 🔄 Workflow Pengembangan
-
-1. Fork repositori
-2. Buat branch fitur (`git checkout -b feature/AmazingFeature`)
-3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buat Pull Request
-
-
-
 ## 🤝 Kontribusi
 
 Kontribusi membuat komunitas open source menjadi tempat yang luar biasa untuk belajar, menginspirasi, dan berkreasi. Setiap kontribusi yang Anda berikan **sangat dihargai**.
